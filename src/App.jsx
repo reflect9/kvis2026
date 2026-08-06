@@ -356,7 +356,7 @@ export default function App() {
               </div>
 
               <div className="map-placeholder" style={{ position: 'relative', overflow: 'hidden', padding: 0, minHeight: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', borderRadius: 'var(--radius-md)' }}>
-                <img src="/banner.png" alt="KAIST N1 Building Cover" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="./banner.png" alt="KAIST N1 Building Cover" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.3) 65%, transparent 100%)' }}></div>
                 <div style={{ position: 'relative', zIndex: 2, padding: '1.25rem', color: '#ffffff' }}>
                   <div style={{ fontWeight: '700', fontSize: '1.05rem', marginBottom: '0.2rem', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>KAIST N1빌딩 201호</div>
