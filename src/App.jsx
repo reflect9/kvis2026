@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
-import { 
-  Calendar, 
-  MapPin, 
-  User, 
-  Mail, 
-  FileText, 
-  Sparkles, 
-  Copy, 
-  Check, 
-  Clock, 
-  Users, 
-  ChevronRight, 
+import {
+  Calendar,
+  MapPin,
+  User,
+  Mail,
+  FileText,
+  Sparkles,
+  Copy,
+  Check,
+  Clock,
+  Users,
+  ChevronRight,
   Award,
   BookOpen,
   Info,
   Coffee,
   Building,
-  Mic
+  Mic,
+  ExternalLink
 } from 'lucide-react';
 
-// Detailed Data for 13 Papers with 15-minute time slots
+// Detailed Data for 13 Papers with 10-minute time slots (7m talk, 2m Q&A, 1m change)
 const SESSION1_PAPERS = [
   {
     id: 1,
-    timeSlot: "14:15 - 14:30",
+    timeSlot: "14:15 - 14:25",
     title: "Treadstone: A Communication Channel for Human-AI Collaborative Data Analysis",
     presenter: "Hyunwook Lee, Sungbeom Cho",
     authors: "Hyunwook Lee, Sungbeom Cho, William Benjamin, Changhee Lee, Hyotaek Jeon, Daeun Jeong, Sungbok Shin, Sungahn Ko, Niklas Elmqvist",
@@ -33,7 +34,7 @@ const SESSION1_PAPERS = [
   },
   {
     id: 2,
-    timeSlot: "14:30 - 14:45",
+    timeSlot: "14:25 - 14:35",
     title: "Swarm Interaction for VA",
     presenter: "Sungbeom Cho",
     authors: "Sungbeom Cho et al.",
@@ -43,7 +44,7 @@ const SESSION1_PAPERS = [
   },
   {
     id: 3,
-    timeSlot: "14:45 - 15:00",
+    timeSlot: "14:35 - 14:45",
     title: "Vis Guideline",
     presenter: "Duc",
     authors: "Duc et al.",
@@ -53,7 +54,7 @@ const SESSION1_PAPERS = [
   },
   {
     id: 4,
-    timeSlot: "15:00 - 15:15",
+    timeSlot: "14:45 - 14:55",
     title: "Supporting Chart Caption Understanding with Visual Annotation",
     presenter: "Yoonjae Oh (KAIST)",
     authors: "Yoonjae Oh, Seon Gyeom Kim, Ryan Rossi, Tak Yeon Lee",
@@ -63,7 +64,7 @@ const SESSION1_PAPERS = [
   },
   {
     id: 5,
-    timeSlot: "15:15 - 15:30",
+    timeSlot: "14:55 - 15:05",
     title: "When Users Don’t Specify",
     presenter: "Jaeeun Seo (Seoul National University)",
     authors: "Ju et al.",
@@ -73,7 +74,7 @@ const SESSION1_PAPERS = [
   },
   {
     id: 6,
-    timeSlot: "15:30 - 15:45",
+    timeSlot: "15:05 - 15:15",
     title: "ESVR: 3D Ellipsoid-based Sparse Volume Rendering via Structure-aware Primitive Learning and Per-primitive Ray Sampling",
     presenter: "Suemin Jeon (Korea University)",
     authors: "Suemin Jeon*, Youjin Kim*, Jungwoo Park, Kyungryun Lee, Won-Ki Jeong",
@@ -86,7 +87,7 @@ const SESSION1_PAPERS = [
 const SESSION2_PAPERS = [
   {
     id: 7,
-    timeSlot: "16:15 - 16:30",
+    timeSlot: "15:30 - 15:40",
     title: "Automatic Transfer Function Design via MLLM-Assisted 2D Semantic Decomposition",
     presenter: "Haejin Jeong (Korea University)",
     authors: "Haejin Jeong, Won-Ki Jeong",
@@ -96,7 +97,7 @@ const SESSION2_PAPERS = [
   },
   {
     id: 8,
-    timeSlot: "16:30 - 16:45",
+    timeSlot: "15:40 - 15:50",
     title: "Super-Gaussian: Interactive Scene Editing for 3D Gaussian Splatting and NLI-Based Volume Visualization in Virtual Reality",
     presenter: "Suemin Jeon (Korea University)",
     authors: "Suemin Jeon, Kaiyuan Tang, Chaoli Wang, Won-Ki Jeong",
@@ -106,27 +107,7 @@ const SESSION2_PAPERS = [
   },
   {
     id: 9,
-    timeSlot: "16:45 - 17:00",
-    title: "GPU-Accelerated Progressive Uniform Manifold Approximation and Projection",
-    presenter: "Myeongwon Jung (Sungkyunkwan University)",
-    authors: "Myeongwon Jung, Jaemin Jo",
-    affiliation: "Sungkyunkwan University",
-    abstract: "GPUMAP은 연산 비용이 높은 UMAP을 GPU 기반 점진적 알고리즘으로 재구성한 차원축소 기법이다. 전체 연산이 끝나고 결과를 확인할 수 있는 기존 UMAP과 달리 최종 결과를 모사한 중간 시각화 결과를 지속적으로 제공하여, 대규모 데이터를 더 빠르게 탐색하고 분석할 수 있도록 지원한다.",
-    session: "Paper Session 2"
-  },
-  {
-    id: 10,
-    timeSlot: "17:00 - 17:15",
-    title: "ProGram: A Grammar for Progressive Computational Pipeline",
-    presenter: "Seunghoon Jung (Sungkyunkwan University)",
-    authors: "Seunghoon Jung, Jaemin Jo",
-    affiliation: "Sungkyunkwan University",
-    abstract: "대용량 데이터를 효과적으로 시각화 하여 분석하기 위한 방법론인 점진적 시각화 (Progressive Visual Analytics, PVA) 는 그 데이터를 점진적으로 처리하고 시각화가 갱신되는 구조로 인해 시스템 개발에 여러 어려움이 있다. 이러한 어려움을 해결하고자 개발된 PVA 시스템들을 조사하고, 이를 추상화하여 Grammar를 만들어 PVA 개발에 도움을 주고자 하였다. 이 문법은 이미 구현된 PVA 시스템을 재개발하고 확장하는 방식으로 그 표현력을 평가하였다.",
-    session: "Paper Session 2"
-  },
-  {
-    id: 11,
-    timeSlot: "17:15 - 17:30",
+    timeSlot: "15:50 - 16:00",
     title: "Great Grave: Modeling Versioned Context Units for Longitudinal LLM Interaction",
     presenter: "Jiwon Jang (Seoul National University)",
     authors: "Jang et al.",
@@ -135,8 +116,8 @@ const SESSION2_PAPERS = [
     session: "Paper Session 2"
   },
   {
-    id: 12,
-    timeSlot: "17:30 - 17:45",
+    id: 10,
+    timeSlot: "16:00 - 16:10",
     title: "Visualization Autocomplete: Visualization Authoring via Stepwise Design Recommendations",
     presenter: "Hyeon Jeon",
     authors: "Hyeon Jeon, Sungbok Shin, Niklas Elmqvist",
@@ -145,13 +126,33 @@ const SESSION2_PAPERS = [
     session: "Paper Session 2"
   },
   {
-    id: 13,
-    timeSlot: "17:45 - 18:00",
+    id: 11,
+    timeSlot: "16:10 - 16:20",
     title: "TailVis: Expressive Chart Refinement Preserving Data-Binding Integrity",
     presenter: "Yumin Song (Seoul National University)",
     authors: "Yumin Song, Seokhyeon Park, Soohyun Lee, Aeri Cho, John Joon Young Chung, Hyeon Jeon, Jinwook Seo",
     affiliation: "Seoul National University, Midjourney",
-    abstract: "발표·논문용 정적 차트는 세밀한 시각적 다듬기가 필요하지만, 기존 도구는 이를 제대로 지원하지 못해 외부 그래픽 편집기로 내보내면서 데이터-시각 연결이 끊긴다. 저자들은 렌더링 이후의 디자인 정제 단계를 포함하도록 InfoVis 참조 모델을 확장하고, 형성 연구(인터뷰 18명·설문 35명)를 근거로 TailVis를 제안한다. TailVis는 요소 단위 직접 선택과 데이터 기반 스코프 확장, 자연어와 동적 위젯의 결합, 지시적(deictic) 상호작용, 프로버넌스 히스토리를 통해 데이터 바인딩을 유지한 채 표현력 있는 정제를 지원한다. 12명 사용자 연구로 효과를 검증했다.",
+    abstract: "발표·논문용 정적 차트는 세밀한 시각적 다듬기가 필요하지만, 기존 도구는 이를 제대로 지원하지 못해 외부 그래픽 편집기로 내보내면서 데이터-시각 연결이 끊긴다. 저자들은 렌더링 이후의 디자인 정제 단계를 포함하도록 InfoVis 참조 모델을 확장하고, 형성 연구(인터뷰 18명·설문 35명)를 근거로 TailVis를 제안한다. TailVis는 요소 단위 직접 선택과 데이터 기반 스코프 확장, 자연어와 동적 위젯의 결합, 지시적(deictic) 상호작용, 프로버Provenance 히스토리를 통해 데이터 바인딩을 유지한 채 표현력 있는 정제를 지원한다. 12명 사용자 연구로 효과를 검증했다.",
+    session: "Paper Session 2"
+  },
+  {
+    id: 12,
+    timeSlot: "16:20 - 16:30",
+    title: "GPU-Accelerated Progressive Uniform Manifold Approximation and Projection",
+    presenter: "Myeongwon Jung (Sungkyunkwan University)",
+    authors: "Myeongwon Jung, Jaemin Jo",
+    affiliation: "Sungkyunkwan University",
+    abstract: "GPUMAP은 연산 비용이 높은 UMAP을 GPU 기반 점진적 알고리즘으로 재구성한 차원축소 기법이다. 전체 연산이 끝나고 결과를 확인할 수 있는 기존 UMAP과 달리 최종 결과를 모사한 중간 시각화 결과를 지속적으로 제공하여, 대규모 데이터를 더 빠르게 탐색하고 분석할 수 있도록 지원한다.",
+    session: "Paper Session 2"
+  },
+  {
+    id: 13,
+    timeSlot: "16:30 - 16:40",
+    title: "ProGram: A Grammar for Progressive Computational Pipeline",
+    presenter: "Seunghoon Jung (Sungkyunkwan University)",
+    authors: "Seunghoon Jung, Jaemin Jo",
+    affiliation: "Sungkyunkwan University",
+    abstract: "대용량 데이터를 효과적으로 시각화 하여 분석하기 위한 방법론인 점진적 시각화 (Progressive Visual Analytics, PVA) 는 그 데이터를 점진적으로 처리하고 시각화가 갱신되는 구조로 인해 시스템 개발에 여러 어려움이 있다. 이러한 어려움을 해결하고자 개발된 PVA 시스템들을 조사하고, 이를 추상화하여 Grammar를 만들어 PVA 개발에 도움을 주고자 하였다. 이 문법은 이미 구현된 PVA 시스템을 재개발하고 확장하는 방식으로 그 표현력을 평가하였다.",
     session: "Paper Session 2"
   }
 ];
@@ -187,12 +188,13 @@ const ORGANIZERS = [
 const SCHEDULE_ITEMS = [
   { time: "13:00 - 13:05", title: "Opening Remarks and Greetings", desc: "Tak Yeon Lee, KAIST" },
   { time: "13:05 - 13:10", title: "Workshop Introduction", desc: "TBD" },
-  { time: "13:10 - 14:15", title: "Keynote Presentation", desc: "Keynote Speaker: TBD (미정)" },
-  { time: "14:15 - 15:45", title: "Paper Session 1 (6 Papers)", desc: "6개 논문 발표 (각 15분)" },
-  { time: "15:45 - 16:15", title: "Coffee Break & Poster Session (30분 휴식)", desc: "네트워킹 및 휴식 시간" },
-  { time: "16:15 - 18:00", title: "Paper Session 2 (7 Papers)", desc: "7개 논문 발표 (각 15분)" },
-  { time: "18:00 - 18:10", title: "Workshop Closing", desc: "Tak Yeon Lee, KAIST" },
-  { time: "18:20 - 19:30", title: "Banquet", desc: "TBD" }
+  { time: "13:10 - 14:00", title: "Keynote Presentation", desc: "Keynote Speaker: TBD (미정, 50분: 40분 발표 + 10분 Q&A)" },
+  { time: "14:00 - 14:15", title: "Coffee Break (15분)", desc: "네트워킹 및 휴식 시간" },
+  { time: "14:15 - 15:15", title: "Paper Session 1 (6 Papers)", desc: "6개 논문 발표 (각 10분: 7분 발표, 2분 Q&A, 1분 교체)" },
+  { time: "15:15 - 15:30", title: "Coffee Break (15분)", desc: "네트워킹 및 휴식 시간" },
+  { time: "15:30 - 16:40", title: "Paper Session 2 (7 Papers)", desc: "7개 논문 발표 (각 10분: 7분 발표, 2분 Q&A, 1분 교체)" },
+  { time: "16:40 - 16:50", title: "Workshop Closing", desc: "Tak Yeon Lee, KAIST" },
+  { time: "17:00 - 18:00", title: "Banquet", desc: "TBD" }
 ];
 
 export default function App() {
@@ -207,8 +209,8 @@ export default function App() {
   };
 
   const renderPaperCard = (paper) => (
-    <div 
-      key={paper.id} 
+    <div
+      key={paper.id}
       className="paper-card-full"
       onClick={() => setSelectedPaper(paper)}
       style={{ cursor: 'pointer' }}
@@ -229,26 +231,20 @@ export default function App() {
           <span><Building size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: '4px' }} />{paper.affiliation}</span>
         </div>
         {paper.abstract && (
-          <div style={{ 
-            fontSize: '0.85rem', 
-            color: 'var(--text-sub)', 
-            lineClamp: 2, 
-            display: '-webkit-box', 
-            WebkitLineClamp: 2, 
-            WebkitBoxOrient: 'vertical', 
-            overflow: 'hidden', 
+          <div style={{
+            fontSize: '0.85rem',
+            color: 'var(--text-sub)',
+            lineClamp: 2,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
             marginTop: '0.35rem',
             lineHeight: '1.5'
           }}>
             {paper.abstract}
           </div>
         )}
-      </div>
-
-      <div className="paper-action-right">
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.85rem', color: 'var(--primary-dark)', fontWeight: '700' }}>
-          Details <ChevronRight size={16} />
-        </span>
       </div>
     </div>
   );
@@ -283,68 +279,43 @@ export default function App() {
           <p className="hero-subtitle">
             Bringing together researchers, educators, and practitioners to advance data visualization, visual analytics, and interactive data intelligence in South Korea.
           </p>
-
-          <div className="hero-banner-container">
-            <img src="/banner.png" alt="K-VIS 2026 Banner" className="hero-banner-img" />
-            <div className="hero-banner-overlay"></div>
-          </div>
-        </section>
-
-        {/* Quick Info Cards Strip */}
-        <section className="quick-info-grid">
-          <div className="info-card">
-            <div className="info-icon-wrapper">
-              <Calendar size={22} />
-            </div>
-            <div>
-              <div className="info-card-label">Date & Time</div>
-              <div className="info-card-value">2026년 8월 26일 (수요일)</div>
-              <div className="info-card-subtext">13:00 - 18:10 KST (Banquet: 18:20~)</div>
-            </div>
-          </div>
-
-          <div className="info-card">
-            <div className="info-icon-wrapper">
-              <MapPin size={22} />
-            </div>
-            <div>
-              <div className="info-card-label">Location</div>
-              <div className="info-card-value">KAIST N25 Industrial Design</div>
-              <div className="info-card-subtext">Daejeon, South Korea (Room TBD)</div>
-            </div>
-          </div>
-
-          <div className="info-card">
-            <div className="info-icon-wrapper">
-              <FileText size={22} />
-            </div>
-            <div>
-              <div className="info-card-label">Key Content</div>
-              <div className="info-card-value">13 Technical Presentations</div>
-              <div className="info-card-subtext">15 Min Each & 30-Min Break</div>
-            </div>
-          </div>
         </section>
 
         {/* Schedule & Venue Section */}
         <section id="venue" style={{ padding: '3rem 0' }}>
           <div className="section-header">
             <h2 className="section-title">Venue & Workshop Timeline</h2>
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              marginTop: '0.75rem', 
+              padding: '0.45rem 1.15rem', 
+              borderRadius: '9999px', 
+              background: 'rgba(79, 70, 229, 0.08)', 
+              border: '1px solid rgba(79, 70, 229, 0.2)',
+              color: 'var(--primary-dark)',
+              fontWeight: '600',
+              fontSize: '0.95rem'
+            }}>
+              <Calendar size={18} color="var(--primary-dark)" />
+              <span>2026년 8월 26일 (수요일)</span>
+            </div>
           </div>
 
           <div className="venue-container">
             {/* Timeline */}
             <div className="glass-card">
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', marginBottom: '1.25rem', color: 'var(--primary-dark)' }}>
-                Workshop Schedule (13:00 - 19:30)
+                Workshop Schedule (13:00 - 18:00)
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {SCHEDULE_ITEMS.map((item, idx) => (
-                  <div key={idx} style={{ 
-                    display: 'flex', 
-                    gap: '1rem', 
-                    alignItems: 'flex-start', 
-                    paddingBottom: '0.75rem', 
+                  <div key={idx} style={{
+                    display: 'flex',
+                    gap: '1rem',
+                    alignItems: 'flex-start',
+                    paddingBottom: '0.75rem',
                     borderBottom: idx !== SCHEDULE_ITEMS.length - 1 ? '1px solid #f1f5f9' : 'none',
                     background: item.title.includes('Coffee Break') ? '#fffbeb' : item.title.includes('Banquet') ? '#eff6ff' : 'transparent',
                     padding: (item.title.includes('Coffee Break') || item.title.includes('Banquet')) ? '0.75rem 1rem' : '0 0 0.75rem 0',
@@ -366,12 +337,12 @@ export default function App() {
             <div className="venue-map-card">
               <div className="venue-details">
                 <span className="badge badge-indigo" style={{ marginBottom: '0.5rem' }}>Hosted at KAIST</span>
-                <h3>KAIST N25 Industrial Design</h3>
-                
+                <h3>KAIST N1빌딩 201호</h3>
+
                 <div className="venue-info-list">
                   <div className="venue-info-item">
                     <MapPin size={18} color="var(--primary-dark)" />
-                    <span>KAIST Campus, N25 Industrial Design Building, Room TBD</span>
+                    <span>KAIST Campus, N1빌딩 (김병호·김삼열 IT 융합빌딩) 201호</span>
                   </div>
                   <div className="venue-info-item">
                     <Calendar size={18} color="var(--primary-dark)" />
@@ -379,15 +350,38 @@ export default function App() {
                   </div>
                   <div className="venue-info-item">
                     <Clock size={18} color="var(--primary-dark)" />
-                    <span>13:00 - 18:10 (Banquet 18:20~)</span>
+                    <span>13:00 - 16:50 (Banquet 17:00 - 18:00)</span>
                   </div>
                 </div>
               </div>
 
-              <div className="map-placeholder">
-                <MapPin size={36} color="var(--primary-dark)" style={{ marginBottom: '0.5rem' }} />
-                <div style={{ fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.25rem' }}>KAIST N25 Industrial Design</div>
-                <div style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>Detailed room assignment and directions will be announced soon.</div>
+              <div className="map-placeholder" style={{ position: 'relative', overflow: 'hidden', padding: 0, minHeight: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', borderRadius: 'var(--radius-md)' }}>
+                <img src="/banner.png" alt="KAIST N1 Building Cover" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.3) 65%, transparent 100%)' }}></div>
+                <div style={{ position: 'relative', zIndex: 2, padding: '1.25rem', color: '#ffffff' }}>
+                  <div style={{ fontWeight: '700', fontSize: '1.05rem', marginBottom: '0.2rem', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>KAIST N1빌딩 201호</div>
+                  <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '0.85rem', textShadow: '0 1px 2px rgba(0,0,0,0.6)', lineHeight: '1.4' }}>대전 유성구 대학로 291 KAIST N1빌딩 (김병호·김삼열 IT 융합빌딩) 201호</div>
+                  <a
+                    href="https://naver.me/54LbpRHT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      fontSize: '0.85rem',
+                      padding: '0.5rem 1rem',
+                      borderRadius: 'var(--radius-sm)',
+                      background: 'var(--primary-dark)',
+                      color: '#ffffff',
+                      fontWeight: '600',
+                      textDecoration: 'none',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    <MapPin size={15} /> 네이버 지도에서 보기 <ExternalLink size={13} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -405,7 +399,7 @@ export default function App() {
               <User size={48} />
             </div>
             <div className="badge badge-tbd" style={{ marginBottom: '0.75rem' }}>
-              Speaker Status: TBD (미정)
+              13:10 - 14:00 (50분: 40분 발표 + 10분 Q&A) • Speaker: TBD (미정)
             </div>
             <h3 className="keynote-name">Keynote Speaker — To Be Announced</h3>
             <div className="keynote-title">Distinguished Guest Lecturer</div>
@@ -429,7 +423,7 @@ export default function App() {
                 Paper Session 1
               </div>
               <div className="session-header-sub">
-                14:15 - 15:45 KST (6 Presentations, 15m each)
+                14:15 - 15:15 KST (6 Presentations, 10m each: 7m talk + 2m Q&A + 1m change)
               </div>
             </div>
 
@@ -438,31 +432,31 @@ export default function App() {
             </div>
           </div>
 
-          {/* 30-Minute Coffee Break Card */}
+          {/* 15-Minute Coffee Break Card */}
           <div className="break-card">
             <div className="break-card-info">
               <div className="break-icon-wrapper">
                 <Coffee size={26} />
               </div>
               <div>
-                <div className="break-title">Coffee Break & Poster Session (30분 휴식 시간)</div>
-                <div className="break-desc">Posters, Informal Discussions, Coffee & Refreshments</div>
+                <div className="break-title">Coffee Break (15분 휴식 시간)</div>
+                <div className="break-desc">Informal Discussions, Coffee & Refreshments</div>
               </div>
             </div>
             <div className="break-time-badge">
-              15:45 - 16:15 (30 Min)
+              15:15 - 15:30 (15 Min)
             </div>
           </div>
 
           {/* Paper Session 2 */}
           <div className="session-section">
-            <div className="session-header-banner" style={{ borderLeftColor: 'var(--accent-purple)', background: 'linear-gradient(135deg, #f3e8ff 0%, #ffffff 100%)' }}>
+            <div className="session-header-banner">
               <div className="session-header-title">
-                <BookOpen size={22} color="var(--accent-purple)" />
+                <BookOpen size={22} color="var(--primary-dark)" />
                 Paper Session 2
               </div>
-              <div className="session-header-sub" style={{ color: 'var(--accent-purple)' }}>
-                16:15 - 18:00 KST (7 Presentations, 15m each)
+              <div className="session-header-sub">
+                15:30 - 16:40 KST (7 Presentations, 10m each: 7m talk + 2m Q&A + 1m change)
               </div>
             </div>
 
@@ -552,9 +546,9 @@ export default function App() {
           }} onClick={(e) => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <div className="paper-time-badge">
-                <Clock size={14} /> {selectedPaper.timeSlot} (15 Min)
+                <Clock size={14} /> {selectedPaper.timeSlot} (10 Min: 7m talk + 2m Q&A + 1m change)
               </div>
-              <button 
+              <button
                 onClick={() => setSelectedPaper(null)}
                 style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '1.25rem', cursor: 'pointer' }}
               >
@@ -585,8 +579,8 @@ export default function App() {
               </p>
             )}
 
-            <button 
-              className="btn-primary" 
+            <button
+              className="btn-primary"
               style={{ width: '100%', justifyContent: 'center' }}
               onClick={() => setSelectedPaper(null)}
             >
