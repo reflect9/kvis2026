@@ -187,7 +187,7 @@ const ORGANIZERS = [
 
 const SCHEDULE_ITEMS = [
   { time: "13:00 - 13:05", title: "Opening Remarks and Greetings", desc: "Tak Yeon Lee, KAIST" },
-  { time: "13:05 - 13:10", title: "Workshop Introduction", desc: "TBD" },
+  { time: "13:05 - 13:10", title: "Workshop Introduction", desc: "Sponsor Advertisement" },
   { time: "13:10 - 14:00", title: "Keynote Presentation", desc: "Keynote Speaker: TBD (미정, 50분: 40분 발표 + 10분 Q&A)" },
   { time: "14:00 - 14:15", title: "Coffee Break (15분)", desc: "네트워킹 및 휴식 시간" },
   { time: "14:15 - 15:15", title: "Paper Session 1 (6 Papers)", desc: "6개 논문 발표 (각 10분: 7분 발표, 2분 Q&A, 1분 교체)" },
