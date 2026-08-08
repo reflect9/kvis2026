@@ -265,6 +265,7 @@ export default function App() {
             <li><a href="#papers" className={`nav-link ${activeNav === 'papers' ? 'active' : ''}`} onClick={() => setActiveNav('papers')}>Papers</a></li>
             <li><a href="#committee" className={`nav-link ${activeNav === 'committee' ? 'active' : ''}`} onClick={() => setActiveNav('committee')}>Organizers</a></li>
             <li><a href="#contact" className={`nav-link ${activeNav === 'contact' ? 'active' : ''}`} onClick={() => setActiveNav('contact')}>Contact</a></li>
+            <li><a href="#sponsorship" className={`nav-link ${activeNav === 'sponsorship' ? 'active' : ''}`} onClick={() => setActiveNav('sponsorship')}>Sponsor</a></li>
           </ul>
         </div>
       </nav>
@@ -518,6 +519,56 @@ export default function App() {
             <button className="copy-btn" onClick={handleCopyEmail}>
               {copiedEmail ? <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}><Check size={14} /> Copied</span> : <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}><Copy size={14} /> Copy</span>}
             </button>
+          </div>
+        </section>
+
+        {/* Sponsorship Section */}
+        <section id="sponsorship" style={{ padding: '3rem 0' }}>
+          <div className="section-header">
+            <h2 className="section-title">Sponsorship & Support</h2>
+            <p className="section-subtitle">Special thanks to our sponsors for supporting the 4th Korea Visualization Workshop.</p>
+          </div>
+
+          <div style={{ maxWidth: '950px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ 
+              background: '#ffffff', 
+              border: '1px solid var(--border-color)', 
+              borderRadius: 'var(--radius-lg)', 
+              padding: '1.25rem', 
+              boxShadow: 'var(--shadow-card)',
+              overflow: 'hidden' 
+            }}>
+              <img 
+                src="./sponsor.png" 
+                alt="2026 AI 응용제품 신속상용화 지원사업 (환경) - 한국환경산업기술원" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  borderRadius: 'var(--radius-md)', 
+                  display: 'block' 
+                }} 
+              />
+            </div>
+
+            <div style={{ 
+              background: '#ffffff', 
+              border: '1px solid var(--border-color)', 
+              borderRadius: 'var(--radius-lg)', 
+              padding: '1.25rem', 
+              boxShadow: 'var(--shadow-card)',
+              overflow: 'hidden' 
+            }}>
+              <img 
+                src="./sponsor2.png" 
+                alt="greenflow Project - 그린플로 프로젝트 맞춤형 솔루션" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  borderRadius: 'var(--radius-md)', 
+                  display: 'block' 
+                }} 
+              />
+            </div>
           </div>
         </section>
       </main>
