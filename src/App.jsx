@@ -278,7 +278,7 @@ export default function App() {
           </h1>
 
           <p className="hero-subtitle">
-            Bringing together researchers, educators, and practitioners to advance data visualization, visual analytics, and interactive data intelligence in South Korea.
+            The 4th Korea Visualization Workshop (K-VIS 2026) will be held at KAIST (Daejeon, Korea) on Wednesday, August 26, 2026. This workshop offers a unique opportunity for in-person exchange among data visualization researchers, educators, and practitioners from Korea and East Asia, providing a forum to share insights on the latest trends in the field. The program features a keynote presentation by Prof. Hyunwoo Park (Seoul National University) and showcases 13 papers presented across two technical sessions. We warmly invite everyone interested in visualization research and interactive data intelligence to join us, and we look forward to your participation!
           </p>
         </section>
 

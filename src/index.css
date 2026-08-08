@@ -381,11 +381,11 @@ a {
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   color: var(--text-sub);
-  max-width: 760px;
+  max-width: 880px;
   margin: 0 auto 2.5rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Quick Info Strip Cards */
