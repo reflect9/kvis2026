@@ -188,7 +188,7 @@ const ORGANIZERS = [
 const SCHEDULE_ITEMS = [
   { time: "13:00 - 13:05", title: "Opening Remarks and Greetings", desc: "Tak Yeon Lee, KAIST" },
   { time: "13:05 - 13:10", title: "Workshop Introduction", desc: "Sponsor Advertisement" },
-  { time: "13:10 - 14:00", title: "Keynote Presentation", desc: "Keynote Speaker: TBD (미정, 50분: 40분 발표 + 10분 Q&A)" },
+  { time: "13:10 - 14:00", title: "Keynote Presentation", desc: "Prof. Hyunwoo Park (Seoul National Univ., 50분: 40분 발표 + 10분 Q&A)" },
   { time: "14:00 - 14:15", title: "Coffee Break (15분)", desc: "네트워킹 및 휴식 시간" },
   { time: "14:15 - 15:15", title: "Paper Session 1 (6 Papers)", desc: "6개 논문 발표 (각 10분: 7분 발표, 2분 Q&A, 1분 교체)" },
   { time: "15:15 - 15:30", title: "Coffee Break (15분)", desc: "네트워킹 및 휴식 시간" },
@@ -392,21 +392,62 @@ export default function App() {
         <section id="keynote" style={{ padding: '3rem 0' }}>
           <div className="section-header">
             <h2 className="section-title">Keynote Session</h2>
-            <p className="section-subtitle">Inspirational talk from a distinguished researcher in data visualization.</p>
+            <p className="section-subtitle">Inspirational talk from a distinguished researcher in data science and visual analytics.</p>
           </div>
 
           <div className="keynote-card" style={{ maxWidth: '850px', margin: '0 auto' }}>
             <div className="keynote-avatar-wrapper">
               <User size={48} />
             </div>
-            <div className="badge badge-tbd" style={{ marginBottom: '0.75rem' }}>
-              13:10 - 14:00 (50분: 40분 발표 + 10분 Q&A) • Speaker: TBD (미정)
+            <div className="badge badge-indigo" style={{ marginBottom: '0.75rem' }}>
+              13:10 - 14:00 (50분: 40분 발표 + 10분 Q&A) • Keynote Speaker
             </div>
-            <h3 className="keynote-name">Keynote Speaker — To Be Announced</h3>
-            <div className="keynote-title">Distinguished Guest Lecturer</div>
+            <h3 className="keynote-name">Hyunwoo Park (박현우 교수)</h3>
+            <div className="keynote-title">Associate Professor, Graduate School of Data Science, Seoul National University</div>
             <p className="keynote-desc">
-              The keynote speaker and talk title for the 4th Korea Visualization Workshop are currently being finalized. Stay tuned for official updates on our keynote presentation focusing on the future of interactive visual intelligence.
+              Prof. Hyunwoo Park conducts cutting-edge research in Data Visualization, Business Analytics, Operations Management, and Network Science at Seoul National University. Prior to joining SNU, he served as an Assistant Professor at The Ohio State University and holds a Ph.D. from Georgia Institute of Technology.
             </p>
+            <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <a
+                href="https://gsds.snu.ac.kr/people-post/hyunwoo-park/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.85rem',
+                  padding: '0.45rem 0.95rem',
+                  borderRadius: 'var(--radius-sm)',
+                  background: 'var(--primary-dark)',
+                  color: '#ffffff',
+                  fontWeight: '600',
+                  textDecoration: 'none'
+                }}
+              >
+                GSDS Faculty Profile <ExternalLink size={13} />
+              </a>
+              <a
+                href="https://hyunwoopark.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.85rem',
+                  padding: '0.45rem 0.95rem',
+                  borderRadius: 'var(--radius-sm)',
+                  background: '#f1f5f9',
+                  color: 'var(--primary-dark)',
+                  fontWeight: '600',
+                  border: '1px solid #cbd5e1',
+                  textDecoration: 'none'
+                }}
+              >
+                Personal Website <ExternalLink size={13} />
+              </a>
+            </div>
           </div>
         </section>
 
